@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Math Game Madness</title>
+  <title>JS Calculator</title>
 
   <link href="styles.css" rel="stylesheet" type="text/css" />
   <link href="animate.css" rel="stylesheet" type="text/css" />
@@ -27,10 +27,39 @@
 </head>
 <body>
   <div id="wrapper" class="container-fluid">
-    <div class="gameInterface center-block">
+    <div class="calcInterface center-block">
       <div class="display"><input type="text" id="displayInput" readonly>
         <div class="keys">
-
+            <p>
+              <input type="button" class="button operator" value="MRC" onclick='memRecall()'>
+              <input type="button" class="button operator" value="M+" onclick='memAdd()'>
+              <input type="button" class="button operator" value="MC" onclick='memClear()'>
+              <input type="button" class="button operator" value="/" onclick='math("/")'>
+            </p>
+            <p>
+              <input type="button" class="button" value="7" onclick='math("7")'>
+              <input type="button" class="button" value="8" onclick='math("8")'>
+              <input type="button" class="button" value="9" onclick='math("9")'>
+              <input type="button" class="button operator" value="*" onclick='math("*")'>
+            </p>
+            <p>
+              <input type="button" class="button" value="4" onclick='math("4")'>
+              <input type="button" class="button" value="5" onclick='math("5")'>
+              <input type="button" class="button" value="6" onclick='math("6")'>
+              <input type="button" class="button operator" value="-" onclick='math("-")'>
+            </p>
+            <p>
+              <input type="button" class="button" value="1" onclick='math("1")'>
+              <input type="button" class="button" value="2" onclick='math("2")'>
+              <input type="button" class="button" value="3" onclick='math("3")'>
+              <input type="button" class="button operator" value="+" onclick='math("+")'>
+            </p>
+            <p>
+              <input type="button" class="button" value="0" onclick='math("0")'>
+              <input type="button" class="button" value="." onclick='math(".")'>
+              <input type="button" class="button" value="C" onclick='c("")'>
+              <input type="button" class="button operator equals" value="=" onclick='e()'>
+            </p>
         </div>
       </div>
     </div>
