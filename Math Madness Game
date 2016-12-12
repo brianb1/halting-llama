@@ -1,0 +1,62 @@
+//This is the javascript code for our Math Madness Game.  <https://repl.it/EmtV/10>
+//Objective - create a math game 
+// step 1: get a random number between 1 and 12
+// step 2: get another random number between 1 and 12
+// step 3: Submit response of the product of random number 1 and 2  
+// step 4: multiply the first random number and the last random number return answer
+// step 5: check if response matches correct answer
+// step 6: if answer is correct, then add point to score
+// step 7: complete 10 questions in total and return the score
+// step 8: store the highest score value
+
+// main score to keep track of the total correct answers
+var score = 0;
+// number of question to ask
+var numQuest = 5;
+// array where the random number 1 and 2 will be stored
+var questionListA = [];
+var questionListB = [];
+var answersList = [];
+// max and minimum numbers to be multiplied against each other
+var minNum = 1;
+var maxNum = 16;
+
+
+// Returns a random integer between minNum(included) and maxNum (included)
+  function randomNum(minNum, maxNum) {
+    minNum= Math.ceil(minNum);
+    maxNum = Math.floor(maxNum);
+    return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+  }
+  
+// Add the first random number to an array of x elements.
+for ( var i = 0; i < numQuest; i++) {
+  questionListA.push(randomNum(minNum, maxNum));
+  console.log(questionListA);
+}
+
+// create another array of random numbers with the same number of elements as the first array.
+for ( var i = 0; i < numQuest; i++) {
+  questionListB.push(randomNum(minNum, maxNum));
+  console.log(questionListB);
+}
+
+// create another array that multiplies the values of each index of the first and second array   
+for ( var i = 0; i < numQuest; i++) {
+  answersList.push(questionListA[i] * questionListB[i]);
+  console.log(answersList[i]);
+}
+
+// create a loop to ask questions. A correct answer adds 1 to the score and incorrect responses reveal the correct answers 
+for ( var i = 0; i < numQuest; i++ ) {
+  var response1 = prompt("Question "+ [i+1] + ": What is the product of " + questionListA[i] + " and " + questionListB[i] +" ?");
+    if ( response1 == answersList[i]) {
+      alert("You got it baby!");
+      score++;
+      console.log(score);
+    } else {
+      alert("Sorry, the correct answer is " + answersList[i]);
+      }
+}
+
+alert("Your score is " + score + " out of " + numQuest);
